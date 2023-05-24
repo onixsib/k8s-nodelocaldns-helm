@@ -69,6 +69,8 @@ spec:
             - {{ .Values.image.args.interfaceName }}
             - -metrics-listen-address
             - "0.0.0.0:{{ add .Values.metrics.port 100 }}"
+            - -upstreamsvc
+            - "kube-dns-upstream"
           ports:
             - name: metrics
               containerPort: {{ .Values.metrics.port }}
