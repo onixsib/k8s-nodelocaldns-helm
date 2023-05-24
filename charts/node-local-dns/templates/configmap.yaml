@@ -41,7 +41,7 @@ data:
       debug
       {{- end }}
       loop
-      bind {{ $localDnsIp }}
+      bind 169.254.20.10 {{ $localDnsIp }}
       forward . {{ $zone.plugins.forward.parameters }} {
       {{- if $zone.plugins.forward.policy }}
         policy {{ $zone.plugins.forward.policy }}
@@ -69,7 +69,7 @@ data:
       prometheus :{{ $metricsPort }}
       {{- end }}
       {{- if $zone.plugins.health }}
-      health {{ $localDnsIp }}:{{ $zone.plugins.health.port }}
+      health 169.254.20.10:{{ $zone.plugins.health.port }}
       {{- end }}
     }
     {{- end }}

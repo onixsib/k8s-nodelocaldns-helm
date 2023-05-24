@@ -3,8 +3,8 @@
 ## Helm Chart Repository
 
 ```
-helm repo add cloudflare-exporter https://lablabs.github.io/k8s-nodelocaldns-helm/
-helm install k8s-nodelocaldns-helm/node-local-dns
+helm repo add node-local-dns https://lablabs.github.io/k8s-nodelocaldns-helm/
+helm install node-local-dns/node-local-dns
 ```
 
 ## Configuration
@@ -33,7 +33,7 @@ The following table lists the configurable parameters of the Node-local-dns char
 | `image.args.setupEbtables` | `false` |
 | `image.args.quiet` | `false` |
 | `imagePullSecrets` |  | `[]` |
-| `config.localDnsIp` |  | `"169.254.20.11"` |
+| `config.localDnsIp` |  | `"10.19.128.2"` |
 | `config.zones` |  | `[{"zone": ".:53", "plugins": {"errors": true, "reload": true, "debug": false, "log": true, "cache": {"parameters": 30, "denial": {}, "success": {}, "prefetch": {}, "serve_stale": false}, "forward": {"parameters": "__PILLAR__UPSTREAM__SERVERS__", "force_tcp": false, "prefer_udp": false, "policy": "", "max_fails": "", "expire": "", "health_check": ""}, "prometheus": true, "health": {"port": 8080}}}, {"zone": "ip6.arpa:53", "plugins": {"errors": true, "reload": true, "debug": false, "log": true, "cache": {"parameters": 30}, "forward": {"parameters": "__PILLAR__UPSTREAM__SERVERS__", "force_tcp": false}, "prometheus": true, "health": {"port": 8080}}}, {"zone": "in-addr.arpa:53", "plugins": {"errors": true, "reload": true, "debug": false, "log": true, "cache": {"parameters": 30}, "forward": {"parameters": "__PILLAR__UPSTREAM__SERVERS__", "force_tcp": false}, "prometheus": true, "health": {"port": 8080}}}]` |
 | `useHostNetwork` |  | `true` |
 | `updateStrategy.rollingUpdate.maxUnavailable` |  | `"10%"` |
@@ -57,7 +57,7 @@ The following table lists the configurable parameters of the Node-local-dns char
 
 ```
 config:
-  localDnsIp: 169.254.20.11
+  localDnsIp: 10.19.128.2
   zones:
     - zone: .:53
       plugins:
