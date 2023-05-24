@@ -37,7 +37,7 @@ spec:
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           args:
             - -localip
-            - "169.254.20.10, {{ .Values.config.localDnsIp }}"
+            - "169.254.20.10,{{ .Values.config.localDnsIp }}"
             {{- if .Values.image.args.skipTeardown }}
             - -skipteardown
             {{- end }}
